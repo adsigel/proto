@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combined Prototype</title>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700;1000&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Mulish', sans-serif;
+            margin: 20px;
+            padding: 0;
+        }
+
+        h1 {
+            font-weight: 1000;
+            font-size: 38px;
+            line-height: 50px;
+        }
+
+        h2 {
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 30px;
+        }
+
+        button {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding: 16px 24px;
+            gap: 8px;
+
+            width: 200px;
+            height: 56px;
+            border-radius: 6px;
+            margin: 20px auto;
+            background: #366CED;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .form-page {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .progress-bar {
+            width: 100%;
+            background-color: #f3f3f3;
+            height: 10px;
+            margin-bottom: 20px;
+        }
+
+        .progress {
+            height: 100%;
+            background-color: #366CED;
+        }
+
+        .form-field {
+            margin-bottom: 20px;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        .checkbox-container input {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="start-page" class="form-page">
+    <h1>Welcome, please select from one of the options below.</h1>
+    <button id="variant-1-button">Variant 1</button>
+    <button id="variant-2-button">Variant 2</button>
+</div>
+
+<div id="legacy-first-page" class="form-page hidden">
+    <div class="progress-bar">
+        <div class="progress" style="width: 33%;"></div>
+    </div>
+    <h1>Does your property qualify?</h1>
+    <h2>If you'd like to receive a no-obligation estimate, we just need a little information from you.</h2>
+
+    <div class="form-field">
+        <label for="property-address">Property Address</label>
+        <input type="text" id="property-address" required>
+    </div>
+
+    <div class="form-field">
+        <label for="unit-number">Unit Number</label>
+        <input type="text" id="unit-number">
+    </div>
+
+    <div class="form-field">
+        <label for="city">City</label>
+        <input type="text" id="city" required>
+    </div>
+
+    <div class="form-field">
+        <label for="state">State</label>
+        <select id="state">
+            <option value="">-- Select --</option>
+            <option value="AL">Alabama</option>
+            <option value="AK">Alaska</option>
+            <option value="AZ">Arizona</option>
+            <option value="AR">Arkansas</option>
+            <option value="CA">California</option>
+            <option value="CO">Colorado</option>
+            <option value="CT">Connecticut</option>
+            <option value="DE">Delaware</option>
+            <option value="FL">Florida</option>
+            <option value="GA">Georgia</option>
+            <option value="HI">Hawaii</option>
+            <option value="ID">Idaho</option>
+            <option value="IL">Illinois</option>
+            <option value="IN">Indiana</option>
+            <option value="IA">Iowa</option>
+            <option value="KS">Kansas</option>
+            <option value="KY">Kentucky</option>
+            <option value="LA">Louisiana</option>
+            <option value="ME">Maine</option>
+            <option value="MD">Maryland</option>
+            <option value="MA">Massachusetts</option>
+            <option value="MI">Michigan</option>
+            <option value="MN">Minnesota</option>
+            <option value="MS">Mississippi</option>
+            <option value="MO">Missouri</option>
+            <option value="MT">Montana</option>
+            <option value="NE">Nebraska</option>
+            <option value="NV">Nevada</option>
+            <option value="NH">New Hampshire</option>
+            <option value="NJ">New Jersey</option>
+            <option value="NM">New Mexico</option>
+            <option value="NY">New York</option>
+            <option value="NC">North Carolina</option>
+            <option value="ND">North Dakota</option>
+            <option value="OH">Ohio</option>
+            <option value="OK">Oklahoma</option>
+            <option value="OR">Oregon</option>
+            <option value="PA">Pennsylvania</option>
+            <option value="RI">Rhode Island</option>
+            <option value="SC">South Carolina</option>
+            <option value="SD">South Dakota</option>
+            <option value="TN">Tennessee</option>
+            <option value="TX">Texas</option>
+            <option value="UT">Utah</option>
+            <option value="VT">Vermont</option>
+            <option value="VA">Virginia</option>
+            <option value="WA">Washington</option>
+            <option value="WV">West Virginia</option>
+            <option value="WI">Wisconsin</option>
+            <option value="WY">Wyoming</option>
+        </select>
+    </div>
+
+    <div class="form-field">
+        <label for="zip-code">ZIP Code</label>
+        <input type="text" id="zip-code" required>
+    </div>
+
+    <button id="legacy-next">Continue</button>
+</div>
+
+<div id="legacy-second-page" class="form-page hidden">
+    <div class="progress-bar">
+        <div class="progress" style="width: 66%;"></div>
+    </div>
+    <h1>Does your property qualify?</h1>
+    <h2>We need some additional information.</h2>
+
+    <div class="form-field">
+        <label for="first-name">First Name</label>
+        <input type="text" id="first-name" required>
+    </div>
+
+    <div class="form-field">
+        <label for="last-name">Last Name</label>
+        <input type="text" id="last-name" required>
+    </div>
+
+    <div class="form-field">
+        <label for="ssn">Social Security Number</label>
+        <input type="password" id="ssn" required>
+    </div>
+
+    <button id="legacy-second-next">Continue</button>
+</div>
+
+<div id="legacy-third-page" class="form-page hidden">
+    <div class="progress-bar">
+        <div class="progress" style="width: 100%;"></div>
+    </div>
+    <h1>Does your property qualify?</h1>
+    <h2>Final details.</h2>
+
+    <div class="form-field">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" required>
+    </div>
+
+    <div class="form-field">
+        <label for="phone">Phone Number</label>
+        <input type="text" id="phone" required>
+    </div>
+
+    <div class="checkbox-container">
+        <input type="checkbox" id="terms">
+        <label for="terms">By checking this box, you are agreeing to our terms of service.</label>
+    </div>
+
+    <button id="legacy-third-submit">Submit</button>
+</div>
+
+<div id="2fa-prototype" class="form-page hidden">
+    <div class="progress-bar">
+        <div class="progress" style="width: 50%;"></div>
+    </div>
+    <h1>Good news! You qualify!</h1>
+    <h2>If you'd like to see a no-obligation estimate, we just need a little information about you.</h2>
+
+    <div class="form-field">
+        <label for="dob">Date of Birth</label>
+        <input type="date" id="dob" required>
+    </div>
+
+    <button id="2fa-next">Continue</button>
+</div>
+
+<div id="2fa-second-page" class="form-page hidden">
+    <div class="progress-bar">
+        <div class="progress" style="width: 100%;"></div>
+    </div>
+    <h1>Good news! You qualify!</h1>
+    <h2>Review your prefilled details and confirm!</h2>
+
+    <div class="form-field">
+        <label for="reviewed-dob">Date of Birth</label>
+        <input type="text" id="reviewed-dob" readonly>
+    </div>
+
+    <div class="form-field">
+        <label for="reviewed-email">Email Address</label>
+        <input type="text" id="reviewed-email" value="steve.example@email.com" readonly>
+    </div>
+
+    <button id="2fa-submit">Submit</button>
+</div>
+
+<script>
+    // Navigation logic for Legacy Prototype
+    document.getElementById('variant-1-button').addEventListener('click', () => {
+        document.getElementById('start-page').classList.add('hidden');
+        document.getElementById('legacy-first-page').classList.remove('hidden');
+    });
+
+    document.getElementById('legacy-next').addEventListener('click', () => {
+        document.getElementById('legacy-first-page').classList.add('hidden');
+        document.getElementById('legacy-second-page').classList.remove('hidden');
+    });
+
+    document.getElementById('legacy-second-next').addEventListener('click', () => {
+        document.getElementById('legacy-second-page').classList.add('hidden');
+        document.getElementById('legacy-third-page').classList.remove('hidden');
+    });
+
+    // Navigation logic for 2FA Prototype
+    document.getElementById('variant-2-button').addEventListener('click', () => {
+        document.getElementById('start-page').classList.add('hidden');
+        document.getElementById('2fa-prototype').classList.remove('hidden');
+    });
+
+    document.getElementById('2fa-next').addEventListener('click', () => {
+        document.getElementById('2fa-prototype').classList.add('hidden');
+        document.getElementById('2fa-second-page').classList.remove('hidden');
+        document.getElementById('reviewed-dob').value = document.getElementById('dob').value;
+    });
+</script>
+
+</body>
+</html>
